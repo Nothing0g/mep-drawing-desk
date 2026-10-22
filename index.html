@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MEP drawing, submittal and coordination action tracker." />
+  <title>Drawing / Desk — MEP coordination tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="rail">
+      <div class="wordmark"><span class="wordmark-box">D/</span><div><strong>DRAWING / DESK</strong><small>MEP coordination log</small></div></div>
+      <div class="project-block"><span class="mono-label">ACTIVE PACKAGE</span><strong>ORBIT<br/>DATA CENTRE</strong><small>Package 04 / Rev C</small></div>
+      <div class="rail-label mono-label">WORKSPACE</div>
+      <nav class="nav" aria-label="Tracker views">
+        <button class="nav-link active" data-view="drawings"><b>01</b> Drawing register <span>32</span></button>
+        <button class="nav-link" data-view="queries"><b>02</b> Coordination log <span>08</span></button>
+        <button class="nav-link" data-view="lookahead"><b>03</b> Two-week look-ahead <span>12</span></button>
+      </nav>
+      <div class="rail-legend"><div><i class="dot green"></i>Approved / closed</div><div><i class="dot amber"></i>Review required</div><div><i class="dot red"></i>Action overdue</div></div>
+      <div class="rail-foot mono-label">CASE STUDY / 026<br/><span>Updated 22 OCT 2026</span></div>
+    </aside>
+    <main class="main">
+      <header class="header"><div><p class="kicker mono-label">ENGINEERING CONTROL / MEP-04</p><h1 id="viewTitle">Drawing register</h1></div><div class="header-right"><div class="sync"><span class="sync-dot"></span><span>LOCAL SAMPLE</span></div><button class="primary" id="newRecord">+ New submittal</button></div></header>
+      <div class="blueprint-line"><span>ORBIT DC / COORDINATION SET</span><span class="line"></span><span>REV C · <b>32 DRAWINGS</b></span></div>
+      <div id="app"></div>
+      <footer class="footer"><span>DRAWING / DESK <em>—</em> MEP drawing, submittal & action tracker</span><span>Roboto interface · Sample portfolio data</span></footer>
+    </main>
+  </div>
+  <div class="modal hidden" id="modal"><div class="modal-card"><div class="modal-head"><div><span class="mono-label">NEW RECORD</span><h2>Add a drawing submittal</h2></div><button class="close" id="closeModal">×</button></div><form id="recordForm"><label>Drawing number<input required name="number" placeholder="e.g. HVAC-DRG-042" /></label><label>Discipline<select name="discipline"><option>HVAC</option><option>Electrical</option><option>Plumbing</option><option>Firefighting</option></select></label><label>Title<input required name="title" placeholder="Drawing title" /></label><label>Revision<input required name="revision" value="A" /></label><label>Submit date<input required name="date" type="date" /></label><div class="modal-actions"><button type="button" class="secondary" id="cancelModal">Cancel</button><button type="submit" class="primary">Add to register</button></div></form></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
